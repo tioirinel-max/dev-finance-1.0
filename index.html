@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevFinance | Dark Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dark-mode">
+    <nav>
+        <div class="nav-content">
+            <div class="logo">Dev<span>Finance</span></div>
+            <div class="nav-actions">
+                <button id="theme-toggle">Dark Mode</button>
+                <button class="btn-toast" onclick="showWelcome()">Toastify</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="grid-top">
+            <div class="card glass">
+                <div class="card-info">
+                    <h3>Entradas</h3>
+                    <p id="incomeDisplay" class="value positive">R$ 0,00</p>
+                </div>
+                <div class="mini-chart">
+                    <canvas id="incomeChart"></canvas>
+                </div>
+            </div>
+
+            <div class="card glass">
+                <div class="card-info">
+                    <h3>Saídas</h3>
+                    <p id="expenseDisplay" class="value negative">R$ 0,00</p>
+                </div>
+                <div class="mini-chart">
+                    <canvas id="expenseChart"></canvas>
+                </div>
+            </div>
+
+            <div class="card glass central">
+                <h3>Balanço Geral</h3>
+                <div class="main-chart-container">
+                    <canvas id="mainChart"></canvas>
+                </div>
+                <p id="totalDisplay" class="total-value">R$ 0,00</p>
+            </div>
+        </div>
+
+        <section class="form-section glass">
+            <form id="form">
+                <input type="text" id="description" placeholder="Ex: Salário" required>
+                <input type="number" id="amount" step="0.01" placeholder="Valor" required>
+                <select id="type">
+                    <option value="income">Entrada</option>
+                    <option value="expense">Saída</option>
+                </select>
+                <button type="submit">Adicionar Transação</button>
+            </form>
+        </section>
+
+        <section class="table-container glass">
+            <table id="data-table">
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        <th>Valor</th>
+                        <th>Tipo</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody id="transaction-body"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
